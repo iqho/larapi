@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,4 @@ Route::get('/', function () {
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/product', function(){
-
- // $datas = Http::get('http://127.0.0.1:8000/api/products');
- $iqbals = 'Iqbal';
-
- return view('welcome', compact('iqbals'));
-});
+Route::get('/p', [ProductController::class, 'index']);
